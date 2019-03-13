@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="assets/javascript/app.js"></script>
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+    <title>TriviaGame</title>
+</head>
+<body>
+    
+    <div class="wrapper">
+
+        <div class="header">
+        
+            <div class="center_container">
+        
+                <div class="row">
+                    <div class="col-md-4">
+                        <div id="my_name">Andrea Yoshida</div>
+                    </div>
+                    <div class="col-md-4"></div>
+                    <div class="col-md-4">
+                        <nav class="navbar navbar-expand-lg navbar-light">
+                            <button class="navbar-toggler" type="button" data-toggle="collapse"
+                                data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false"
+                                aria-label="Toggle navigation">
+                                <span class="navbar-toggler-icon"></span>
+                            </button>
+                            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                                <div class="navbar-nav">
+                                    <a class="nav-item nav-link" href="https://aryoshida.github.io/">About</a>
+                                    <a class="nav-item nav-link" href="https://aryoshida.github.io/portfolio.html">Portfolio</a>
+                                    <a class="nav-item nav-link" href="https://aryoshida.github.io/contact.html">Contact</a>
+                                </div>
+                            </div>
+                        </nav>
+                    </div>
+                </div>
+        
+            </div>
+        
+        </div>
+
+        <div class="clearfix"></div>
+
+        <div class="container">
+            <div class="row">
+                <section id="quizBody">
+                <!-- put your code for the game here -->
+                <div class="instructions">
+                    <h2>Instructions!</h2>
+                    <h3>To start</h3>
+                </div>
+                <button type="button" id="submit" class="btn btn-success">Submit Answers</button>
+
+                    <div id="quiz">
+
+                        <div id="question1">What color is the sky durring the day?
+                            <hr>
+                            <form action="" method="post">
+                                <input type="radio" name="choice" value="bed" /> Yellow
+                                <br>
+                                <input type="radio" name="choice" value="clock" /> Purple
+                                <br>
+                                <input type="radio" name="choice" value="snake" /> Blue
+                                <br>
+                            </form>
+                        </div>
+
+                        <br>
+
+                        <div id="question2">How many genders are there?
+                            <hr>
+                            <form action="" method="post">
+                                <input type="radio" name="choice" value="bed" /> 2
+                                <br>
+                                <input type="radio" name="choice" value="clock" /> 63
+                                <br>
+                                <input type="radio" name="choice" value="snake" /> 5
+                                <br>
+                            </form>
+                        </div>
+
+                        <br>                   
+
+                        <div id="question3">What animal makes the 'moo' sound?
+                            <hr>
+                            <form action="" method="post">
+                                <input type="radio" name="choice" value="bed" /> Cat
+                                <br>
+                                <input type="radio" name="choice" value="clock" /> Cow
+                                <br>
+                                <input type="radio" name="choice" value="snake" /> Snail
+                                <br>
+                            </form>
+                        </div>
+
+                    </div>
+
+                    <div id="results"></div>
+
+                </section>
+            </div>
+    
+        </div>
+
+
+
+
+    </div>
+    
+    
+    <footer>this is me</footer>
+
+
+
+</body>
+</html>
