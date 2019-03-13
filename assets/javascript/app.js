@@ -173,5 +173,13 @@ $("#start").on("click", function(){
         }
     }
 
+    $("#quizBody").append("<br>");
+
+    $("#quizBody").append("<button id='submit'>Submit</button>");
+    
+    $('#Submit').on('click', ...);
+
 })
+
+
 
