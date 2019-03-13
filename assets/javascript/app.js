@@ -26,75 +26,75 @@
 //     // set choice text html tag text = questObj.choices[index]
 // }
 
-const triviaQuestions = [
-    {
-        question: "What color is the sky durring the day?",
-        choices: {
-            a: "Yellow",
-            b: "Purple",
-            c: "Blue"
-        },
-        correctAnswer: "c"
-    },
-    {
-        question: "How many genders are there?",
-        choices: {
-            a: "2",
-            b: "63",
-            c: "5"
-        },
-        correctAnswer: "a"
-    },
-    {
-        question: "What animal makes the 'moo' sound?",
-        choices: {
-            a: "cat",
-            b: "cow",
-            c: "snail"
-        },
-        correctAnswer: "b"
-    }
-];
+// const triviaQuestions = [
+//     {
+//         question: "What color is the sky durring the day?",
+//         choices: {
+//             a: "Yellow",
+//             b: "Purple",
+//             c: "Blue"
+//         },
+//         correctAnswer: "c"
+//     },
+//     {
+//         question: "How many genders are there?",
+//         choices: {
+//             a: "2",
+//             b: "63",
+//             c: "5"
+//         },
+//         correctAnswer: "a"
+//     },
+//     {
+//         question: "What animal makes the 'moo' sound?",
+//         choices: {
+//             a: "cat",
+//             b: "cow",
+//             c: "snail"
+//         },
+//         correctAnswer: "b"
+//     }
+// ];
 
-var questionContainer = document.getElementById("quiz");
-var choicesContainer = document.getElementById("choices");
-var resultsContainer = document.getElementById("results");
-var submitButton = document.getElementById("submit");
+// var questionContainer = document.getElementById("quiz");
+// var choicesContainer = document.getElementById("choices");
+// var resultsContainer = document.getElementById("results");
+// var submitButton = document.getElementById("submit");
 
 
 
-function displayQuestions(triviaQuestions){
+// function displayQuestions(triviaQuestions){
 
-    var output = [];
-    var choices;
+//     var output = [];
+//     var choices;
     
-    for(var i = 0; i < question.length; i++){
+//     for(var i = 0; i < question.length; i++){
 
-        choices = [];
+//         choices = [];
 
-        for(letter in triviaQuestions[i].choices){
+//         for(letter in triviaQuestions[i].choices){
 
-            choices.push(
-                '<label>'
-                    + '<input type="radio" name="question '+i+' "value=" '+letter+' ">'
-                    + letter + ': '
-                    + triviaQuestions[i].choices[letter]
-                + '</label>'
-            );
-        }
+//             choices.push(
+//                 '<label>'
+//                     + '<input type="radio" name="question '+i+' "value=" '+letter+' ">'
+//                     + letter + ': '
+//                     + triviaQuestions[i].choices[letter]
+//                 + '</label>'
+//             );
+//         }
 
-        output.push(
-            '<div class="question">' + triviaQuestions[i].question + '</div>'
-            + '<div class="answers">' + choices.join('') + '</div>'
-        );
+//         output.push(
+//             '<div class="question">' + triviaQuestions[i].question + '</div>'
+//             + '<div class="answers">' + choices.join('') + '</div>'
+//         );
 
-    }
+//     }
 
-    quizHolder.innerHTML = output.join('');
+//     quizHolder.innerHTML = output.join('');
 
-}
+// }
 
-displayQuestions(questionContainer);
+// displayQuestions(questionContainer);
 
 
 // function showResults(triviaQuestions, quizHolder, resultsHolder){
@@ -127,3 +127,51 @@ displayQuestions(questionContainer);
 // displayQuestions(triviaQuestions, quizHolder);
 
 // createQuiz(triviaQuestions, quizHolder, resultsHolder, submitButton);
+
+
+const triviaQuestions = [
+    {
+        question: "In the Lion King, where does Mufasa and his family live??",
+        choices: [
+            "By the Lazy River", "Mountains Shadow", "Pride Rock"
+        ],
+        correctAnswer: "c"
+    },
+    {
+        question: "In Peter Pan, Captain Hook had a hook on which one of his hands?",
+        choices: [
+            "Left", "Neither", "Right"
+        ],
+        correctAnswer: "a"
+    },
+    {
+        question: "In what full length animated feature would you find a villain named Sykes? ",
+        choices: [
+            "Bug's Life", "Oliver and Company", "Toy Story"
+        ],
+        correctAnswer: "b"
+    },
+    {
+        question: "What was the name of the dragon (god wanna be) in Mulan?",
+        choices: [
+            "Kahn", "Mushu", "Po"
+        ],
+        correctAnswer: "b"
+    }
+];
+
+
+$("#start").on("click", function(){
+
+    $('#quizBody').html('');
+
+    for(var i = 0; i < triviaQuestions.length; i++){
+
+        $("#quizBody").append("<h2>" + triviaQuestions[i].question + "<h2>");
+        for(var j = 0; j < triviaQuestions[i].choices.length; j++){
+            $("#quizBody").append("<input type='radio' name='question-"+i+"' value='"+triviaQuestions[i].choices[j]+"'>"+triviaQuestions[i].choices[j]);
+        }
+    }
+
+})
+
