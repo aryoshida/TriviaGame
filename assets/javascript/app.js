@@ -195,6 +195,7 @@ var game = {
 }
 
 
+
 $("#start").on("click", function(){
 
     game.start();
