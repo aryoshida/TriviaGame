@@ -160,26 +160,55 @@ const triviaQuestions = [
     }
 ];
 
+var game = {
+    correct: 0,
+    incorrect: 0,
+    counter: 60,
+    countdown: function(){
+        game.counter--;
+        $("#counter").html(game.counter);
+        if(game.counter<=0){
+            alert("Time is up!!!");
+            game.done();
+        }
+    },
+    start: function(){
+
+        timer = setInterval(game.countdown,1000);
+
+        $("#quizBody").prepend("<h2><b>Time Remaining: <span id='counter'>60</span> Seconds</b></h2>");
+        
+        $("#start").remove();
+
+        for(var i = 0; i < triviaQuestions.length; i++){
+    
+            $("#quizBody").append("<h2>" + triviaQuestions[i].question + "<h2>");
+            for(var j = 0; j < triviaQuestions[i].choices.length; j++){
+                $("#quizBody").append("<input type='radio' name='question-"+i+"' value='"+triviaQuestions[i].choices[j]+"'>"+triviaQuestions[i].choices[j]);
+            }
+
+        }        
+    },
+    done: function(){
+        $.each($("input[name='question-1]':checked"))
+    }
+}
+
 
 $("#start").on("click", function(){
 
-    $('#quizBody').html('');
-
-    for(var i = 0; i < triviaQuestions.length; i++){
-
-        $("#quizBody").append("<h2>" + triviaQuestions[i].question + "<h2>");
-        for(var j = 0; j < triviaQuestions[i].choices.length; j++){
-            $("#quizBody").append("<input type='radio' name='question-"+i+"' value='"+triviaQuestions[i].choices[j]+"'>"+triviaQuestions[i].choices[j]);
-        }
-    }
+    game.start();
 
     $("#quizBody").append("<br>");
 
     $("#quizBody").append("<button id='submit'>Submit</button>");
-    
-    $('#Submit').on('click', ...);
 
-})
+});
+
+
+
+// $('#Submit').on('click', ...);
+
 
 
 
