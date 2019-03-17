@@ -4,10 +4,11 @@ $("#start").on("click", function(){
 
     $("#quizBody").append("<br>");
 
-    $(document).on("click", "#end", function(){
-        game.done();
-    })
-});
+})
+
+$(document).on("click", "#end", function(){
+    game.done();
+})
 
 const triviaQuestions = [
     {
@@ -15,28 +16,28 @@ const triviaQuestions = [
         choices: [
             "By the Lazy River", "Mountains Shadow", "Pride Rock"
         ],
-        correctAnswer: "c"
+        correctAnswer: "Pride Rock"
     },
     {
         question: "In Peter Pan, Captain Hook had a hook on which one of his hands?",
         choices: [
             "Left", "Neither", "Right"
         ],
-        correctAnswer: "a"
+        correctAnswer: "Left"
     },
     {
         question: "In what full length animated feature would you find a villain named Sykes? ",
         choices: [
             "Bug's Life", "Oliver and Company", "Toy Story"
         ],
-        correctAnswer: "b"
+        correctAnswer: "Oliver and Company"
     },
     {
         question: "What was the name of the dragon (god wanna be) in Mulan?",
         choices: [
             "Kahn", "Mushu", "Po"
         ],
-        correctAnswer: "b"
+        correctAnswer: "Mushu"
     }
 ];
 
@@ -47,7 +48,7 @@ var game = {
     countdown: function(){
         game.counter--;
         $("#counter").html(game.counter);
-        if(game.counter<=0){
+        if(game.counter==0){
             alert("Time is up!!!");
             game.done();
         }
@@ -56,7 +57,7 @@ var game = {
 
         timer = setInterval(game.countdown,1000);
 
-        $("#quizBody").prepend("<h2><b>Time Remaining: <span id='counter'>60</span> Seconds</b></h2>");
+        $("#quizBody").prepend("<h2><b>Time Remaining: <span id='counter'>30</span> Seconds</b></h2><hr>");
         
         $("#start").remove();
 
@@ -72,29 +73,30 @@ var game = {
         $("#quizBody").append("<br><button id='end'>Submit</button>");
     },
     done: function(){
-        $.each($("input[name='question-0]':checked"),function(){
-            if($(this).val()==triviaQuestions[0].correctAnswer){
+        clearTimeout(timer);
+        $.each($("input[name='question-0']:checked"), function(){
+            if($(this).val() == triviaQuestions[0].correctAnswer){
                 game.correct++;
             } else{
                 game.incorrect++;
             }
         });
-        $.each($("input[name='question-1]':checked"),function(){
-            if($(this).val()==triviaQuestions[1].correctAnswer){
+        $.each($("input[name='question-1']:checked"), function(){
+            if($(this).val() == triviaQuestions[1].correctAnswer){
                 game.correct++;
             } else{
                 game.incorrect++;
             }
         });
-        $.each($("input[name='question-2]':checked"),function(){
-            if($(this).val()==triviaQuestions[2].correctAnswer){
+        $.each($("input[name='question-2']:checked"), function(){
+            if($(this).val() == triviaQuestions[2].correctAnswer){
                 game.correct++;
             } else{
                 game.incorrect++;
             }
         });
-        $.each($("input[name='question-3]':checked"),function(){
-            if($(this).val()==triviaQuestions[3].correctAnswer){
+        $.each($("input[name='question-3']:checked"), function(){
+            if($(this).val() == triviaQuestions[3].correctAnswer){
                 game.correct++;
             } else{
                 game.incorrect++;
@@ -109,15 +111,14 @@ var game = {
         clearInterval(timer);
         $("#quizBody h2").remove();
 
-        $("quizbody").html("<h2>Done!</h2>");
-        $("#quizbody").append("<h3>Correct Answers: " + this.correct + "</h3>");
-        $("#quizbody").append("<h3>Incorrect Answers: " + this.incorrect + "</h3>");
-        $("#quizbody").append("<h3>Unanswered: " + (triviaQuestions.length-(this.incorrect + this.correct)) + "</h3>");
+        $("#quizBody").html("<h2>Done!</h2>");
+        $("#quizBody").append("<h3>Correct Answers: " + this.correct + "</h3>");
+        $("#quizBody").append("<h3>Incorrect Answers: " + this.incorrect + "</h3>");
+        $("#quizBody").append("<h3>Unanswered: " + (triviaQuestions.length-(this.incorrect + this.correct)) + "</h3>");
 
     }
 }
 
-// $('#Submit').on('click', ...);
 
 
 
