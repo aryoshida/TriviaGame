@@ -65,7 +65,7 @@ var game = {
     
             $("#quizBody").append("<h2>" + triviaQuestions[i].question + "<h2>");
             for(var j = 0; j < triviaQuestions[i].choices.length; j++){
-                $("#quizBody").append("<input type='radio' name='question-"+i+"' value='"+triviaQuestions[i].choices[j]+"'>"+triviaQuestions[i].choices[j]);
+                $("#quizBody").append("<input type='radio' name='question-"+i+"' value='"+triviaQuestions[i].choices[j]+"'>"+triviaQuestions[i].choices[j] + " ");
             }
 
         } 
